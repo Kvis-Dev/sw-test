@@ -1,0 +1,5 @@
+$(function(){
+
+
+    //some magic
+});
