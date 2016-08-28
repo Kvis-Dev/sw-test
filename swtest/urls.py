@@ -20,5 +20,7 @@ from users import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('^$', views.index)
+    url('^$', views.index),
+    url('^add$', views.create)
 ]
+

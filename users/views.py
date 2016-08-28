@@ -1,11 +1,27 @@
 from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# Create your views here.
+from db import Database
+from users import forms
 
 
 def index(request):
+    db = Database()
+    users = db.select('user')
+    paginator = Paginator(users, 25)  # Show 25 contacts per page
 
-    return render(request, 'users/index.html')
+    page = request.GET.get('page')
+
+    try:
+        users = paginator.page(page)
+    except PageNotAnInteger:
+        users = paginator.page(1)
+    except EmptyPage:
+        users = paginator.page(paginator.num_pages)
+
+    return render(request, 'users/index.html', {
+        'users': users
+    })
 
 
 def view(request, id=0):
@@ -19,8 +35,16 @@ def update(request, id=0):
 
 
 def create(request):
+    form = forms.User(request.POST if request.method == 'POST' else None)
 
-    return render(request, 'users/create.html')
+    if form.is_valid():
+        pass
+    else:
+        pass
+
+    return render(request, 'users/create.html', {
+        'form': form
+    })
 
 
 def delete(request):

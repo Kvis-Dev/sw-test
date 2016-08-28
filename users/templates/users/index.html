@@ -41,19 +41,24 @@
             </tbody>
         </table>
         <br/>
-        1
-        <br/>
-        {% include "widget/pager.html" with page=1 total=15 link="/user/?p=" %}
-        <br/>
-        2<br/>
-        {% include "widget/pager.html" with page=2 total=15 link="/user/?p=" %}
-        <br/>
-        5<br/>
-        {% include "widget/pager.html" with page=5 total=15 link="/user/?p=" %}
 
-        <br/>
-        15<br/>
-        {% include "widget/pager.html" with page=15 total=15 link="/user/?p=" %}
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if users.has_previous %}
+                    <a href="?page={{ users.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ users.number }} of {{ users.paginator.num_pages }}.
+                </span>
+
+                {% if users.has_next %}
+                    <a href="?page={{ users.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+
 
     </div>
 

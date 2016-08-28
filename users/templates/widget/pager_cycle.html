@@ -1,9 +1,0 @@
-{% with page|add:addition as start %}
-    {% with ''|center:'5' as range %}
-        {% for _ in range %}
-            {% if start|add:'-1'|add:forloop.counter <= total %}
-                {{ start|add:'-1'|add:forloop.counter }}
-            {% endif%}
-        {% endfor %}
-    {% endwith %}
-{% endwith %}
