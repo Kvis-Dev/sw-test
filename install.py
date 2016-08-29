@@ -39,16 +39,7 @@ if not db.table_exists('courses'):
       ADD PRIMARY KEY (`id`);
 
     ALTER TABLE `user_courses`
-      ADD PRIMARY KEY (`id`);
-
-    ALTER TABLE `courses`
-      MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
-    ALTER TABLE `user`
-      MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
-    ALTER TABLE `user_courses`
-      MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+      ADD PRIMARY KEY (`id`)
     """
 
     for q in install.split(';'):
