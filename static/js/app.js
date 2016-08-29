@@ -33,6 +33,74 @@ $(function () {
 
     var form_lock = false;
 
+
+    $('.perpage').change(function () {
+        Cookies.set('pager', $(this).val());
+        window.location.reload();
+    });
+
+    var collids = function () {
+        var lc = [];
+
+        $('.courses-list').each(function () {
+            if (typeof $(this).data('id') !== 'undefined') {
+                lc.push($(this).data('id'));
+            }
+        });
+
+        $('input.courses').val(lc.join(','));
+    };
+
+    $('.courses-block button').click(function () {
+        var $t = $('select.courses');
+        var opt = $t.find('option[value="' + $t.val() + '"]');
+        var text = opt.text();
+        var atrv = opt.attr('value');
+
+        $('<div data-id="' + atrv + '" data-name="' + text + '" class="courses-list">' + text + '<span class="cross">x</span></div>').insertAfter('input.courses');
+
+        collids();
+
+        opt.remove();
+
+        if ($('select.courses').find('option').length > 0) {
+            $('.courses-block').show();
+        } else {
+            $('.courses-block').hide();
+        }
+        return false;
+    });
+
+    $(document).on('click', '.cross', function () {
+        var $t = $(this).parent();
+
+        var id = $t.data('id');
+        var val = $t.data('name');
+
+        $('select.courses').append('<option value="' + id + '">' + val + '</option>');
+
+        $t.remove();
+
+        collids();
+
+        if ($('select.courses').find('option').length > 0) {
+            $('.courses-block').show();
+        } else {
+            $('.courses-block').hide();
+        }
+    });
+
+    var vals = $('input.courses').val();
+    if (typeof vals !== 'undefined') {
+        $.each(vals.split(','), function (k, v) {
+            if (v) {
+                $('select.courses').val(v);
+                $('.courses-block button').click();
+            }
+        });
+    }
+
+
     $('.userform form').submit(function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -66,70 +134,4 @@ $(function () {
         });
         return false;
     });
-
-    $('.perpage').change(function () {
-        Cookies.set('pager', $(this).val());
-        window.location.reload();
-    });
-
-    var collids = function () {
-        var lc = [];
-
-        $('.courses-list').each(function () {
-            if (typeof $(this).data('id') !== 'undefined') {
-                lc.push($(this).data('id'));
-            }
-        });
-
-        $('input.courses').val(lc.join(','));
-    };
-
-    $('select.courses').change(function () {
-        var $t = $(this);
-        var opt = $t.find('option[value="' + $t.val() + '"]');
-        var text = opt.text();
-        var atrv = opt.attr('value');
-
-        $('<div data-id="' + atrv + '" data-name="' + text + '" class="courses-list">' + text + '<span class="cross">x</span></div>').insertAfter('input.courses');
-
-        collids();
-
-        opt.remove();
-        $t.val('');
-
-        if ($('select.courses').find('option').length > 0) {
-            $('.courses-block').show();
-        } else {
-            $('.courses-block').hide();
-        }
-    }).val('');
-
-    $(document).on('click', '.cross', function () {
-        var $t = $(this).parent();
-
-        var id = $t.data('id');
-        var val = $t.data('name');
-
-        $('select.courses').append('<option value="' + id + '">' + val + '</option>').val('');
-
-        $t.remove();
-
-        collids();
-
-        if ($('select.courses').find('option').length > 0) {
-            $('.courses-block').show();
-        } else {
-            $('.courses-block').hide();
-        }
-    });
-
-    var vals = $('input.courses').val();
-    if (typeof vals !== 'undefined') {
-        $.each(vals.split(','), function (k, v) {
-            console.log(v);
-            if (v) {
-                $('select.courses').val(v).change();
-            }
-        });
-    }
 });

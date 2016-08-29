@@ -368,3 +368,14 @@ input.courses {
 .btn-ed {
     background-position: -28px;
 }
+
+.courses-block select {
+    width: 304px;
+    float: left;
+}
+
+.courses-block button {
+    width: 40px;
+    float: right;
+    margin: 2px -14px 0 0;
+}
