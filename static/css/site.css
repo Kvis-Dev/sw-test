@@ -79,7 +79,7 @@ html, body {
 }
 
 .header .links {
-position: relative;
+    position: relative;
     right: 0;
     margin-left: auto;
     width: 150px;
@@ -87,7 +87,7 @@ position: relative;
     line-height: 40px;
 }
 
-.header li{
+.header li {
     display: inline-block;
     margin: 0px 0px 0 19px;
 }
@@ -98,8 +98,273 @@ position: relative;
     margin: 0 auto;
 }
 
-.logo img{
+.logo img {
     max-height: 40px;
     width: 90px;
-        position: absolute;
+    position: absolute;
+}
+
+.content label {
+    display: block;
+}
+
+.hline {
+    margin-top: 27px;
+    font-size: 29px;
+    text-align: center;
+}
+
+.hline h2 {
+    margin-top: -11px;
+    margin-bottom: 36px;
+}
+
+.userform {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.hline a {
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #F24D3E;
+    border-radius: 50%;
+    line-height: 41px;
+    color: white;
+    text-decoration: none;
+    top: 14px;
+    left: 10px;
+}
+
+.userform input {
+    outline: none;
+    width: 343px;
+    margin-top: 7px;
+    padding: 11px;
+    border-radius: 21px;
+}
+
+.userform label {
+    font-size: 15px;
+    margin-top: 18px;
+}
+
+.userform select {
+    width: 367px;
+    background-color: white;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 20px;
+    padding: 11px;
+}
+
+.userform button {
+    width: 100px;
+    color: white;
+    background: #62bd7f;
+    position: relative;
+    margin-left: 264px;
+    margin-top: 19px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.tabletop .add {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 40px;
+    background: #F24D3E;
+    border-radius: 50%;
+    line-height: 41px;
+    color: white;
+    text-decoration: none;
+    top: 39px;
+    padding-left: 11px;
+    font-size: 31px;
+    float: left;
+}
+
+.usersearch button {
+    background-position: 4px;
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: #62bd7f;
+    border-radius: 50%;
+    line-height: 41px;
+    color: white;
+    text-decoration: none;
+    top: 39px;
+    left: 20px;
+    padding-left: 11px;
+    font-size: 31px;
+    z-index: 1;
+}
+
+.usersearch input {
+    outline: none;
+    position: absolute;
+    margin: 41px 0 0 -18px;
+    padding: 10px 10px 10px 54px;
+    width: 173px;
+    border-radius: 20px;
+}
+
+.tabletop h2 {
+    display: inline-block;
+    font-size: 28px;
+    width: 1050px;
+    text-align: center;
+    margin: 15px 0 0 46px;
+    padding: 0 0 0 16px;
+}
+
+.tabletop .perpage {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 0px 0 0 -40px;
+    position: absolute;
+    width: 99px;
+    height: 40px;
+}
+
+.utable {
+    width: 100%;
+    margin-top: 38px;
+}
+
+.utable thead {
+    background: #575761;
+    color: white;
+}
+
+.utable td {
+    padding: 12px;
+}
+
+.ins-error {
+    position: absolute;
+    margin-left: 383px;
+    margin-top: -29px;
+    color: #f14d3e;
+    font-size: 13px;
+}
+
+.notify-ok {
+    position: fixed;
+    width: 228px;
+    background: white;
+    color: #64be7c;
+    border-radius: 20px;
+    top: 80px;
+    border: 2px solid #64be7c;
+    right: 38px;
+    padding: 10px 10px 10px 30px;
+    display: none;
+}
+
+.utable tbody tr {
+    border-bottom: 1px solid grey;
+    background: white;
+}
+
+.step-links span,
+.step-links a {
+    background: white;
+    color: grey;
+}
+
+.step-links span.np {
+    color: grey;
+}
+
+.step-links a.np {
+    color: #fff;
+    background: #62bd7f;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+}
+
+input[readonly] {
+    background: darkslategrey;
+    color: white;
+}
+
+.smallround {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.bg-green {
+    background: #62bd7f;
+}
+
+.bg-red {
+    background: #F24D3E;
+}
+
+input.courses {
+    display: none;
+}
+
+.courses-list {
+    width: 350px;
+}
+
+.courses-list .cross {
+    position: relative;
+    border: 1px solid darkslategrey;
+    border-radius: 50%;
+    font-size: 10px;
+    width: 8px;
+    height: 12px;
+    padding: 0px 0 0 4px;
+    line-height: 12px;
+    display: block;
+    margin-left: 350px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+.links li a {
+    color: grey;
+}
+
+.links li a.active {
+    color: white;
+}
+
+.color-green {
+    color: #62bd7f;
+}
+
+.color-red {
+    color: #F24D3E;
+}
+
+.btn-spr {
+    background-repeat: no-repeat;
+
+    background-image: url("/static/img/sprite.png");
+}
+
+.btn-del {
+    background-position: -69px;
+}
+
+.btn-ed {
+    background-position: -28px;
 }

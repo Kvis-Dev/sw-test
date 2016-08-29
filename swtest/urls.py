@@ -21,6 +21,9 @@ from users import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^$', views.index),
-    url('^add$', views.create)
+    url('^add$', views.create),
+    url('^edit/([0-9]+)', views.update),
+    url('^delete/([0-9]+)', views.delete),
+    url('^courses/', views.courses),
 ]
 

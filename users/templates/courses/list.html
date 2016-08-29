@@ -1,0 +1,23 @@
+{% extends 'layout/main.html' %}
+
+{% block content %}
+    <div class="tabletop">
+        <h2> COURSES </h2>
+    </div>
+    <div>
+        <table class="utable">
+            <thead>
+            <tr>
+                <td style="width: 100%" class="name">Name</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for c in courses %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -23,7 +23,7 @@ class User(forms.Form):
         if not len(phone) == 12:
             raise ValidationError('Phone should be in international format')
 
-        return phone
+        return '+%s' % phone
 
     def clean_phone(self):
         return self.phones_clean('phone')
